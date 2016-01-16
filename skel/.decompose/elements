@@ -13,5 +13,10 @@ PROJECT_GROUPID=100
 # Proxy port
 PROJECT_PROXY_PORT=9091
 
+# Backup config
+PROJECT_BACKUP_CONFIG_NAME='safe-transmision'
+PROJECT_BACKUP_INCLUDES=""
+PROJECT_BACKUP_EXCLUDES=('.gitmodules' 'backup_config' 'downloads' 'incomplete' 'transmission-daemon-config' )
+
 # OpenVPN command
 # PROJECT_OPENVPN_COMMAND='-v "vpn.server.name;username;password"'
