@@ -1,4 +1,5 @@
 #!/bin/bash
+source $(_decompose-project-root)/.decompose/environment/lib/common/elements
 
 # Transmission directories
 PROJECT_DOWNLOAD_DIR="./downloads"
