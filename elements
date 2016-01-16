@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Transmission directories
+PROJECT_DOWNLOAD_DIR="./downloads"
+PROJECT_INCOMPLETE_DOWNLOAD_DIR="./incomplete"
+PROJECT_TRANSMISSION_CONFIG_DIR="./transmission-daemon-config"
+
+# Setup user IDs
+PROJECT_USERID=1000
+PROJECT_GROUPID=100
+
+# Proxy port
+PROJECT_PROXY_PORT=9091
