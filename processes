@@ -1,5 +1,20 @@
 #!/bin/bash 
 source $(_decompose-project-root)/.decompose/environment/lib/common/processes
 source $(_decompose-project-root)/.decompose/environment/lib/backup/processes
+source $(_decompose-project-root)/.decompose/environment/lib/docker/processes
 
-DECOMPOSE_PROCESSES=( "${DECOMPOSE_COMMON_PROCESSES[@]}" "${DECOMPOSE_BACKUP_PROCESSES[@]}" )
+DECOMPOSE_PROCESSES=( "${DECOMPOSE_COMMON_PROCESSES[@]}" "${DECOMPOSE_BACKUP_PROCESSES[@]}"
+  "${DECOMPOSE_DOCKER_PROCESSES[@]}" 'cron' )
+
+_decompose-process-cron() {
+  echo "Running cron ..."
+  _decompose-process-docker-build
+  docker-compose up -d
+  decompose remove-dangling-docker-images
+  decompose backup_config
+}
+_decompose-process-cron_help() {
+  echo "  Runs actions that should be scheduled through host cron"
+}
+
+# vim:syntax=sh tabstop=2 shiftwidth=2 expandtab
